@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0d0d1a;
+  color: white;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 197, 24, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(245, 197, 24, 0.6); }
+}
+
+.btn-gold {
+  @apply font-bold py-3 px-8 rounded-lg text-black transition-all duration-300;
+  background: linear-gradient(135deg, #f5c518, #e0a800);
+}
+
+.btn-gold:hover {
+  animation: pulse-gold 1.5s ease-in-out infinite;
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ffe04a, #f5c518);
+}
+
+.card {
+  @apply rounded-xl p-6;
+  background-color: #1a1a2e;
+  border: 1px solid #2d2d4e;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+.animated-dots::after {
+  content: '';
+  animation: dots 1.5s steps(1) infinite;
+}
+
+@keyframes countdown-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.countdown-number {
+  animation: countdown-pop 0.5s ease-out;
+}
+
+.char-correct {
+  color: #4ade80;
+}
+
+.char-incorrect {
+  color: #ef4444;
+  text-decoration: underline;
+}
+
+.char-current {
+  background-color: rgba(245, 197, 24, 0.3);
+  border-left: 2px solid #f5c518;
+}
+
+.char-pending {
+  color: #6b7280;
+}
